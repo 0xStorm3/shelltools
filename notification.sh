@@ -1,5 +1,15 @@
 #!/bin/ash
 
-blockchaininfo = $(bitcoin-cli -datadir=/mnt/sda/bitcoin getblockchaininfo)
+bci=$(bitcoin-cli -datadir=/mnt/sda/bitcoin getblockchaininfo)
+echo $bci
 
-echo ${blockchaininfo}
+blocks=$(echo $bci | jq .blocks)
+headers=$(echo $bci | jq .headers)
+idb=$(echo $bci | jq .initialblockdownload)
+
+if idb
+then
+    echo "IBD"
+else
+    echo "RUNNING"
+fi
