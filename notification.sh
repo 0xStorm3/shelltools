@@ -1,3 +1,5 @@
-#!/bin/bash
+#!/bin/ash
 
-echo "test"
+blockchaininfo = $(bitcoin-cli -datadir=/mnt/sda/bitcoin getblockchaininfo)
+
+echo ${blockchaininfo}
