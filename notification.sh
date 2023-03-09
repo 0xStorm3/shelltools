@@ -24,5 +24,3 @@ then
     echo "send message to $MGR_USER"
     noscl message $MGR_USER "$bitcoindstatus"
 fi
-
-echo "END"
