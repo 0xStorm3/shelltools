@@ -7,7 +7,7 @@ blocks=$(echo $bci | jq .blocks)
 headers=$(echo $bci | jq .headers)
 idb=$(echo $bci | jq .initialblockdownload)
 
-if idb
+if idb="true"
 then
     echo "IBD"
 else
