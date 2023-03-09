@@ -9,7 +9,8 @@ idb=$(echo $bci | jq .initialblockdownload)
 
 if idb="true"
 then
-    echo 'IBD $(printf "%d%%" $(($blocks*100/$headers)))'
+    echo $(printf "%d%%" $(($blocks*100/$headers)))
+    echo 'IBD '
 else
     echo "RUNNING"
 fi
