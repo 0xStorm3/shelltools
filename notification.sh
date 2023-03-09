@@ -1,6 +1,8 @@
 #!/bin/ash
 
 echo "BEGIN"
+curdate=$(TZ=UTC-8 date +%Y-%m-%d" "%H:%M:%S)
+echo "curdate=$curdate"
 
 bci=$(bitcoin-cli -datadir=/mnt/sda/bitcoin getblockchaininfo)
 echo $bci
@@ -22,7 +24,7 @@ echo $bitcoindstatus
 if [ -n "$MGR_USER" ]
 then 
     echo "send message to $MGR_USER"
-    noscl message $MGR_USER "$bitcoindstatus"
+    noscl message $MGR_USER "$curdate $bitcoindstatus"
 fi
 
 echo "END"
