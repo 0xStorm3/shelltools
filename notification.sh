@@ -13,13 +13,13 @@ bitcoindstatus=""
 if idb="true"
 then
     percent=$(printf "%d%%" $(($blocks*100/$headers)))
-    bitcoindstatus='IBD ${percent}'
+    bitcoindstatus="IBD ${percent}"
 else
     bitcoindstatus="RUNNING ${headers}"
 fi
 
 echo $bitcoindstatus
-if -n $MGR_USER
+if [ -n "$MGR_USER" ]
 then 
     echo "send message to $MGR_USER"
     noscl message $MGR_USER "$bitcoindstatus"
